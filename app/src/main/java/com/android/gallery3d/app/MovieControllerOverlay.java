@@ -18,6 +18,7 @@ package com.android.gallery3d.app;
 
 import android.content.Context;
 import android.os.Handler;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -131,27 +132,39 @@ public class MovieControllerOverlay extends CommonControllerOverlay implements
         return super.onKeyDown(keyCode, event);
     }
 
+    GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent e) {
+            if (hidden) {
+                show();
+            } else {
+                hide();
+            }
+            return true;
+        }
+    });
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (super.onTouchEvent(event)) {
             return true;
         }
-
-        if (hidden) {
-            show();
-            return true;
-        }
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                cancelHiding();
-                if (mState == State.PLAYING || mState == State.PAUSED) {
-                    mListener.onPlayPause();
-                }
-                break;
-            case MotionEvent.ACTION_UP:
-                maybeStartHiding();
-                break;
-        }
+        gestureDetector.onTouchEvent(event);
+//        if (hidden) {
+//            show();
+//            return true;
+//        }
+//        switch (event.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                cancelHiding();
+//                if (mState == State.PLAYING || mState == State.PAUSED) {
+//                    mListener.onPlayPause();
+//                }
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                maybeStartHiding();
+//                break;
+//        }
         return true;
     }
 
