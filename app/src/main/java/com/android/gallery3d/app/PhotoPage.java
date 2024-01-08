@@ -797,6 +797,7 @@ public abstract class PhotoPage extends ActivityState implements
     //////////////////////////////////////////////////////////////////////////
 
     private void showBars() {
+        if (true)return;
         if (mShowBars) return;
         mShowBars = true;
         mOrientationManager.unlockOrientation();
@@ -807,6 +808,7 @@ public abstract class PhotoPage extends ActivityState implements
     }
 
     private void hideBars() {
+        if (true)return;
         if (!mShowBars) return;
         mShowBars = false;
         mActionBar.hide();
