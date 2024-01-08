@@ -130,11 +130,12 @@ public class MovieActivity extends Activity {
         if (actionBar == null) {
             return;
         }
-        setActionBarLogoFromIntent(intent);
+//        setActionBarLogoFromIntent(intent);
         actionBar.setDisplayOptions(
                 ActionBar.DISPLAY_HOME_AS_UP,
                 ActionBar.DISPLAY_HOME_AS_UP);
-
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setHomeAsUpIndicator(R.drawable.arrow_back_24px);
         String title = intent.getStringExtra(Intent.EXTRA_TITLE);
         if (title != null) {
             actionBar.setTitle(title);
@@ -195,12 +196,12 @@ public class MovieActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-            if (mTreatUpAsBack) {
+//            if (mTreatUpAsBack) {
                 finish();
-            } else {
-                startActivity(new Intent(this, GalleryActivity.class));
-                finish();
-            }
+//            } else {
+//                startActivity(new Intent(this, GalleryActivity.class));
+//                finish();
+//            }
             return true;
         } else if (id == R.id.action_share) {
             startActivity(Intent.createChooser(createShareIntent(),
