@@ -63,7 +63,9 @@ public class StateManager {
                     StateTransitionAnimation.Transition.Incoming);
             if (mIsResumed) top.onPause();
         }
-
+        if (data.getBoolean(PhotoPage.KEY_FORCE_DISPLAY_HOME_AS_UP, false) && state instanceof PhotoPage) {
+            ((PhotoPage) state).forceDisplayHomeAsUp = true;
+        }
         UsageStatistics.onContentViewChanged(
                 UsageStatistics.COMPONENT_GALLERY,
                 klass.getSimpleName());

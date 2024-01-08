@@ -207,6 +207,7 @@ public final class GalleryActivity extends AbstractGalleryActivity implements On
 
                 data.putString(PhotoPage.KEY_MEDIA_ITEM_PATH, itemPath.toString());
                 data.putBoolean(PhotoPage.KEY_READONLY, true);
+                data.putBoolean(PhotoPage.KEY_FORCE_DISPLAY_HOME_AS_UP,true);
 
                 // TODO: Make the parameter "SingleItemOnly" public so other
                 //       activities can reference it.

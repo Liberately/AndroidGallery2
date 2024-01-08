@@ -113,6 +113,7 @@ public abstract class PhotoPage extends ActivityState implements
     public static final String KEY_SHOW_WHEN_LOCKED = "show_when_locked";
     public static final String KEY_IN_CAMERA_ROLL = "in_camera_roll";
     public static final String KEY_READONLY = "read-only";
+    public static final String KEY_FORCE_DISPLAY_HOME_AS_UP = "forceDisplayHomeAsUp";
 
     public static final String KEY_ALBUMPAGE_TRANSITION = "albumpage-transition";
     public static final int MSG_ALBUMPAGE_NONE = 0;
@@ -137,6 +138,8 @@ public abstract class PhotoPage extends ActivityState implements
 
     // The mediaset used by camera launched from secure lock screen.
     private SecureAlbum mSecureAlbum;
+
+    public boolean forceDisplayHomeAsUp;
 
     private int mCurrentIndex = 0;
     private Handler mHandler;
@@ -883,6 +886,11 @@ public abstract class PhotoPage extends ActivityState implements
             return;
         }
 
+        if (forceDisplayHomeAsUp) {
+            super.onBackPressed();
+            return;
+        }
+
         if (mActivity.getStateManager().getStateCount() > 1) {
             setResult();
             super.onBackPressed();
@@ -1390,7 +1398,7 @@ public abstract class PhotoPage extends ActivityState implements
         mModel.resume();
         mPhotoView.resume();
         mActionBar.setDisplayOptions(
-                ((mSecureAlbum == null) && (mSetPathString != null)), false);
+                forceDisplayHomeAsUp || ((mSecureAlbum == null) && (mSetPathString != null)), false);
         mActionBar.addOnMenuVisibilityListener(mMenuVisibilityListener);
         refreshBottomControlsWhenReady();
         if (mShowSpinner && mPhotoView.getFilmMode()) {
