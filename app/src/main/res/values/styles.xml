@@ -39,7 +39,7 @@
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowBackground">@drawable/filtershow_tiled_background</item>
     </style>
-    <style name="Holo.ActionBar" parent="android:Widget.Holo.ActionBar">
+    <style name="Holo.ActionBar" parent="android:Widget.Material.ActionBar">
         <item name="android:displayOptions">useLogo|showHome</item>
         <item name="android:background">@drawable/actionbar_translucent</item>
         <item name="android:backgroundStacked">@null</item>
