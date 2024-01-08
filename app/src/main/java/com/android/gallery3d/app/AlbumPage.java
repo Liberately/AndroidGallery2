@@ -548,15 +548,15 @@ public class AlbumPage extends ActivityState implements GalleryActionBar.Cluster
                     DataManager.INCLUDE_IMAGE);
             actionBar.setTitle(GalleryUtils.getSelectionModePrompt(typeBits));
         } else {
-            inflator.inflate(R.menu.album, menu);
+//            inflator.inflate(R.menu.album, menu);
             actionBar.setTitle(mMediaSet.getName());
 
             FilterUtils.setupMenuItems(actionBar, mMediaSetPath, true);
 
-            menu.findItem(R.id.action_group_by).setVisible(mShowClusterMenu);
-            menu.findItem(R.id.action_camera).setVisible(
-                    MediaSetUtils.isCameraSource(mMediaSetPath)
-                    && GalleryUtils.isCameraAvailable(mActivity));
+//            menu.findItem(R.id.action_group_by).setVisible(mShowClusterMenu);
+//            menu.findItem(R.id.action_camera).setVisible(
+//                    MediaSetUtils.isCameraSource(mMediaSetPath)
+//                    && GalleryUtils.isCameraAvailable(mActivity));
 
         }
         actionBar.setSubtitle(null);

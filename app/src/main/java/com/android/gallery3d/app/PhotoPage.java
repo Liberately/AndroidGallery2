@@ -941,8 +941,8 @@ public abstract class PhotoPage extends ActivityState implements
 
     @Override
     protected boolean onCreateActionBar(Menu menu) {
-        mActionBar.createActionBarMenu(R.menu.photo, menu);
-        mHaveImageEditor = GalleryUtils.isEditorAvailable(mActivity, "image/*");
+//        mActionBar.createActionBarMenu(R.menu.photo, menu);
+//        mHaveImageEditor = GalleryUtils.isEditorAvailable(mActivity, "image/*");
         updateMenuOperations();
         mActionBar.setTitle(mMediaSet != null ? mMediaSet.getName() : "");
         return true;
@@ -1399,11 +1399,11 @@ public abstract class PhotoPage extends ActivityState implements
             mActionBar.hide();
             mActivity.getGLRoot().setLightsOutMode(true);
         }
-        boolean haveImageEditor = GalleryUtils.isEditorAvailable(mActivity, "image/*");
-        if (haveImageEditor != mHaveImageEditor) {
-            mHaveImageEditor = haveImageEditor;
-            updateMenuOperations();
-        }
+//        boolean haveImageEditor = GalleryUtils.isEditorAvailable(mActivity, "image/*");
+//        if (haveImageEditor != mHaveImageEditor) {
+//            mHaveImageEditor = haveImageEditor;
+//            updateMenuOperations();
+//        }
 
         mRecenterCameraOnResume = true;
         mHandler.sendEmptyMessageDelayed(MSG_UNFREEZE_GLROOT, UNFREEZE_GLROOT_TIMEOUT);

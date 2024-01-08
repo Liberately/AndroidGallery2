@@ -540,25 +540,25 @@ public class AlbumSetPage extends ActivityState implements
             inflater.inflate(R.menu.pickup, menu);
             mActionBar.setTitle(R.string.select_album);
         } else {
-            inflater.inflate(R.menu.albumset, menu);
+//            inflater.inflate(R.menu.albumset, menu);
             boolean wasShowingClusterMenu = mShowClusterMenu;
             mShowClusterMenu = !inAlbum;
-            boolean selectAlbums = !inAlbum &&
-                    mActionBar.getClusterTypeAction() == FilterUtils.CLUSTER_BY_ALBUM;
-            MenuItem selectItem = menu.findItem(R.id.action_select);
-            selectItem.setTitle(activity.getString(
-                    selectAlbums ? R.string.select_album : R.string.select_group));
-
-            MenuItem cameraItem = menu.findItem(R.id.action_camera);
-            cameraItem.setVisible(GalleryUtils.isCameraAvailable(activity));
-
-            FilterUtils.setupMenuItems(mActionBar, mMediaSet.getPath(), false);
-
-            Intent helpIntent = HelpUtils.getHelpIntent(activity);
-
-            MenuItem helpItem = menu.findItem(R.id.action_general_help);
-            helpItem.setVisible(helpIntent != null);
-            if (helpIntent != null) helpItem.setIntent(helpIntent);
+//            boolean selectAlbums = !inAlbum &&
+//                    mActionBar.getClusterTypeAction() == FilterUtils.CLUSTER_BY_ALBUM;
+//            MenuItem selectItem = menu.findItem(R.id.action_select);
+//            selectItem.setTitle(activity.getString(
+//                    selectAlbums ? R.string.select_album : R.string.select_group));
+//
+//            MenuItem cameraItem = menu.findItem(R.id.action_camera);
+//            cameraItem.setVisible(GalleryUtils.isCameraAvailable(activity));
+//
+//            FilterUtils.setupMenuItems(mActionBar, mMediaSet.getPath(), false);
+//
+//            Intent helpIntent = HelpUtils.getHelpIntent(activity);
+//
+//            MenuItem helpItem = menu.findItem(R.id.action_general_help);
+//            helpItem.setVisible(helpIntent != null);
+//            if (helpIntent != null) helpItem.setIntent(helpIntent);
 
             mActionBar.setTitle(mTitle);
             mActionBar.setSubtitle(mSubtitle);
