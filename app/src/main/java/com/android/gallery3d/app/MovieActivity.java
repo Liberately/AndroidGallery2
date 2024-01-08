@@ -169,18 +169,18 @@ public class MovieActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.movie, menu);
+//        getMenuInflater().inflate(R.menu.movie, menu);
 
         // Document says EXTRA_STREAM should be a content: Uri
         // So, we only share the video if it's "content:".
-        MenuItem shareItem = menu.findItem(R.id.action_share);
-        if (ContentResolver.SCHEME_CONTENT.equals(mUri.getScheme())) {
-            shareItem.setVisible(true);
-            ((ShareActionProvider) shareItem.getActionProvider())
-                    .setShareIntent(createShareIntent());
-        } else {
-            shareItem.setVisible(false);
-        }
+//        MenuItem shareItem = menu.findItem(R.id.action_share);
+//        if (ContentResolver.SCHEME_CONTENT.equals(mUri.getScheme())) {
+//            shareItem.setVisible(true);
+//            ((ShareActionProvider) shareItem.getActionProvider())
+//                    .setShareIntent(createShareIntent());
+//        } else {
+//            shareItem.setVisible(false);
+//        }
         return true;
     }
 
